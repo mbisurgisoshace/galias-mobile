@@ -9,6 +9,7 @@ import AddPedido from './screens/AddPedido';
 import Cliente from './screens/Cliente';
 import Articulo from './screens/Articulo';
 import Promocion from './screens/Promocion';
+import Precios from './screens/Precios';
 import Settings from './screens/Settings';
 import Login from './screens/Login';
 import AuthLoading from './screens/AuthLoading';
@@ -41,6 +42,12 @@ const mainStack = createStackNavigator({
     }
   });
 
+const preciosStack = createStackNavigator({
+  Precios: {
+    screen: Precios
+  }
+});
+
 const settingsStack = createStackNavigator({
   Settings: {
     screen: Settings
@@ -49,6 +56,7 @@ const settingsStack = createStackNavigator({
 
 const appStack = createBottomTabNavigator({
   Main: mainStack,
+  Precios: preciosStack,
   Settings: settingsStack
 }, {
     navigationOptions: ({ navigation }) => ({
@@ -58,6 +66,8 @@ const appStack = createBottomTabNavigator({
 
         if (routeName === 'Main') {
           icon = `ios-home`;
+        } else if (routeName === 'Precios') {
+          icon = `ios-cash`;
         } else if (routeName === 'Settings') {
           icon = `ios-options`;
         }

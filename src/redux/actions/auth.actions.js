@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { LOGIN, LOGOUT, LOGIN_SUCCESFULL, LOGIN_FAILED } from './';
 
-export const login = (email, password, navigation) => {
+export const login = (username, password, navigation) => {
     return async (dispatch) => {
         const URL = `https://galias-server-api.herokuapp.com/signin`;
 
@@ -12,7 +12,7 @@ export const login = (email, password, navigation) => {
         });
 
         try {
-            const res = await axios.post(URL, { email, password });
+            const res = await axios.post(URL, { username, password });
 
             if (res) {
                 await AsyncStorage.setItem('token', JSON.stringify(res.data.token));

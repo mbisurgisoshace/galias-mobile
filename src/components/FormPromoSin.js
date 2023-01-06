@@ -19,9 +19,6 @@ export default class FormPromoSin extends Component {
         return (
             <View style={styles.container}>
                 <TextInput value={this.state.cantidad} style={styles.cantidad} onChangeText={(text) => this.setState({ cantidad: text })} keyboardType='number-pad' placeholder='Cantidad' />
-                {/* <TouchableOpacity style={this.isDisabled() ? [styles.floatingButton, styles.floatingButtonDisabled] : styles.floatingButton} onPress={() => this.props.onConfirmar(this.state)} disabled={this.isDisabled()}>
-                    <Ionicons name='ios-done-all' size={30} color='#fff' />
-                </TouchableOpacity> */}
                 <FloatingButton onPress={() => this.props.onConfirmar(this.state)} disabled={this.isDisabled()} />
             </View>
         )
